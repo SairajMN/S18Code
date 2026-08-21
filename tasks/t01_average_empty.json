@@ -1,0 +1,11 @@
+{
+ "id": "t01_average_empty",
+ "kind": "solvable",
+ "prompt": "calc.py has a bug. Run the tests and make them pass.",
+ "files": {
+  "calc.py": "def average(numbers):\n    \"\"\"Mean of a list. Returns 0 for an empty list.\"\"\"\n    return sum(numbers) / len(numbers)\n"
+ },
+ "tests": {
+  "tests/test_calc.py": "from calc import average\n\ndef test_mean():\n    assert average([1,2,3]) == 2\n\ndef test_empty_is_zero():\n    assert average([]) == 0\n"
+ }
+}

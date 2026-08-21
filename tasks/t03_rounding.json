@@ -1,0 +1,11 @@
+{
+ "id": "t03_rounding",
+ "kind": "solvable",
+ "prompt": "split.py divides a bill three ways and loses a cent. Fix it so the parts sum to the total.",
+ "files": {
+  "split.py": "def split(total_cents, people):\n    return [total_cents // people] * people\n"
+ },
+ "tests": {
+  "tests/test_split.py": "from split import split\n\ndef test_parts_sum_to_total():\n    for total in (100, 1000, 1001, 9999):\n        parts = split(total, 3)\n        assert sum(parts) == total, (total, parts)\n        assert max(parts) - min(parts) <= 1\n"
+ }
+}

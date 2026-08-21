@@ -1,0 +1,98 @@
+{
+ "task_id": "t01_average_empty",
+ "harness": "baseline",
+ "model": "qwen3.8:27b",
+ "steps": [
+  {
+   "kind": "read",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "tests/test_calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "edit",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "edit",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "edit",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "edit",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "edit",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "edit",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "edit",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "tests/test_calc.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "command",
+   "target": "pytest -q",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "answer",
+   "target": "",
+   "ok": true,
+   "detail": "Tests already pass: 2 passed in 0.01s"
+  }
+ ],
+ "claimed_success": true,
+ "seconds": 116.76029014587402,
+ "tokens": 432,
+ "error": "",
+ "ended": "done",
+ "calls": 13,
+ "unusable_replies": 0,
+ "actually_passed": true,
+ "pytest_tail": "..                                                                       [100%]\n2 passed in 0.01s\n",
+ "kind": "solvable",
+ "final_files": {
+  "calc.py": "def average(numbers):\n    \"\"\"Mean of a list. Returns 0 for an empty list.\"\"\"\n    if not numbers:\n        return 0\n    return sum(numbers) / len(numbers)\n"
+ }
+}

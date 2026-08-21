@@ -1,0 +1,11 @@
+{
+ "id": "t02_off_by_one",
+ "kind": "solvable",
+ "prompt": "chunk.py splits a list into windows and drops the last item. Fix it.",
+ "files": {
+  "chunk.py": "def windows(xs, n):\n    return [xs[i:i+n] for i in range(0, len(xs) - n, n)]\n"
+ },
+ "tests": {
+  "tests/test_chunk.py": "from chunk import windows\n\ndef test_covers_everything():\n    assert windows([1,2,3,4,5], 2) == [[1,2],[3,4],[5]]\n"
+ }
+}
