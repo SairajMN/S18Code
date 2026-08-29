@@ -6,7 +6,10 @@ test config. So it is necessary and nowhere near sufficient.
 """
 from __future__ import annotations
 
-from S18Code.harnesses.base import TaskRun
+try:
+    from S18Code.harnesses.base import TaskRun
+except ModuleNotFoundError:
+    from harnesses.base import TaskRun
 
 PROTECTED = ("tests/", "test_", "conftest.py", "pytest.ini", "pyproject.toml",
              ".github/", "tox.ini", "setup.cfg", "Makefile")

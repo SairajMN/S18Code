@@ -13,7 +13,6 @@ jobs:
       - run: pip install python-dotenv
       - name: Score checked-in journals (no model calls)
         run: |
-          cd S18Code 2>/dev/null || true
           python3 scorer/score.py --runs runs --out /tmp/scores_ci.json
       - name: Fail if scored output drifts from checked-in scores
         run: |

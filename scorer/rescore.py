@@ -14,7 +14,10 @@ wasted_steps computed from the same journals, and diff against a saved
 import argparse, json, pathlib, sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
-from S18Code.scorer.score import load_journal, score_run
+try:
+    from S18Code.scorer.score import load_journal, score_run
+except ModuleNotFoundError:
+    from scorer.score import load_journal, score_run
 
 
 def wasted_steps(steps: list) -> int:

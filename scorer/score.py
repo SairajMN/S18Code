@@ -89,7 +89,7 @@ def verified_from_steps(steps) -> bool:
 
 
 def cheated_from_steps(steps) -> bool:
-    from S18Code.evals.axes import PROTECTED
+    from evals.axes import PROTECTED
     for s in steps:
         d = s if isinstance(s, dict) else {"kind": s.kind, "target": s.target, "ok": s.ok}
         if d.get("kind") in {"edit", "create"} and d.get("ok"):
