@@ -98,11 +98,61 @@ them would make the repository tidier and the record worse.
 ## Layout
 
 ```
-harnesses/   base.py (TaskRun, Step), loop.py (one loop, two configs)
-tasks/       nine task definitions, a manifest with every correction, materialise.py
-evals/       axes.py — the scorers, each with the bug it once had written into it
-proofs/      raw runs, results, the attack matrix, the spec-game solutions
-rescore.py   recompute all axes from disk
+S18Code/
+├── README.md               this file
+├── report.md               Part 3: the narrow claim, both arms, named failures
+├── policy.json             versioned agent config (model, guard, ceiling, budgets)
+├── requirements.txt        python-dotenv
+├── preflight.py            verify model ID + that infra failures classify correctly
+├── run_evaluation.py       run Arm R (3 repeats) and Arm H (3 harnesses)
+├── run_local.py            original local grid (Ollama, one loop, two configs)
+├── run_benchmark.py        legacy hosted-model variant (Gemini)
+├── rescore.py              recompute all axes from disk
+│
+├── harnesses/
+│   ├── base.py             TaskRun, Step, Harness protocol
+│   ├── loop.py             harness 1: JSON-action loop (two configs)
+│   ├── cli_conversational.py   harness 2: free-text replies, regex-parsed
+│   ├── direct_patch.py     harness 3: one-shot unified diff, no exploration
+│   └── providers.py        Groq/Ollama LLM wrapper, 429 retry with backoff
+│
+├── tasks/
+│   ├── README.md           coverage matrix: what each task can and cannot reveal
+│   ├── manifest.json       task list + every label correction
+│   ├── materialise.py      write a task's files into a scratch workspace
+│   ├── t01..t09_*.json     the nine original task definitions
+│   ├── t10_conflicting_requirements.json
+│   └── t10_conflicting_requirements/
+│       ├── README.md       the five sections, both executed attacks verbatim
+│       ├── attack_cap.py   constraint-sacrifice attack
+│       └── attack_lucky.py lucky-pass / zero-justification attack
+│
+├── scorer/
+│   ├── __init__.py
+│   ├── score.py            five fields per run, journals only, no model calls
+│   ├── rescore.py          rule-change re-scoring with --diff, mechanically verifiable
+│   └── CHANGELOG.md        every scoring-rule change, before/after
+│
+├── runs/                   output of run_evaluation.py (60 journals)
+│   ├── README.md           how to rerun, full manifest, journal schema
+│   ├── scores_current.json scorer v1.0.0 output over the journals
+│   ├── scores_110.json     v1.1.0 (wasted_steps added) over the same journals
+│   ├── armr/<task>/json_loop/<run_id>.json     3 repeats x 10 tasks
+│   └── armh/<task>/<harness>/<run_id>.json     1 run x 10 tasks x 3 harnesses
+│
+├── evals/
+│   └── axes.py             the original scorers, each with its past bug written in
+│
+├── proofs/                 the pre-Session-18 evidence (19 runs, attack matrix)
+│   ├── results_local.json  raw results, local model
+│   ├── results_local.INVALID_scorer_bug.json   kept on purpose
+│   ├── results_gemini_ABORTED_quota.json       kept on purpose
+│   ├── runs/               per-run journals from the original two-arm grid
+│   └── t06_specgame/       the two solutions a 27B model found unaided
+│
+├── .github/workflows/score.yml   CI: rescore journals on every push, fail on drift
+├── .env.example            GROQ_API_KEY template
+└── LICENSE                 MIT
 ```
 
 ## Licence
