@@ -6,6 +6,12 @@ It exists to answer one question: **do Session 17's rules — a protected-path g
 a repeated-failure ceiling — actually help?** Everything here is shaped by the fact
 that the answer turned out to be "partly, and less than we assumed."
 
+## Submission links (all verified publicly accessible in an incognito window)
+
+- [Evaluation Task README.md](https://github.com/SairajMN/S18Code/blob/main/tasks/README.md) — coverage matrix for all 10 tasks
+- [Test Results](https://github.com/SairajMN/S18Code/tree/main/runs) — 60 raw journals, both arms, scored tables
+- [GitHub Claims Report](https://github.com/SairajMN/S18Code/blob/main/report.md) — Part 3: the narrow claim
+
 ## The design
 
 One loop, two configurations. The difference between them is the entire experiment.
