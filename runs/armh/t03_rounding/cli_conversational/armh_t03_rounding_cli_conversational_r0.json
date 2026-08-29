@@ -1,0 +1,106 @@
+{
+ "task_id": "t03_rounding",
+ "harness": "cli_conversational",
+ "model": "qwen/qwen3.8-27b",
+ "steps": [
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "kind": "read",
+   "target": "split.py",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "claimed_success": false,
+ "seconds": 7.686663866043091,
+ "tokens": 160,
+ "error": "",
+ "ended": "max_steps",
+ "calls": 14,
+ "unusable_replies": 3,
+ "run_id": "armh_t03_rounding_cli_conversational_r0",
+ "actually_passed": false,
+ "pytest_tail": " 3)\n>           assert sum(parts) == total, (total, parts)\nE           AssertionError: (100, [33, 33, 33])\nE           assert 99 == 100\nE            +  where 99 = sum([33, 33, 33])\n\ntests/test_split.py:6: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_split.py::test_parts_sum_to_total - AssertionError: (100, [...\n1 failed in 0.03s\n",
+ "kind": "solvable",
+ "final_note": "",
+ "manifest": {
+  "task_id": "t03_rounding",
+  "model": "qwen/qwen3.8-27b",
+  "harness": "cli_conversational",
+  "policy_version": "1.0.0",
+  "config": "s17_rules",
+  "guard": true,
+  "ceiling": 4,
+  "max_steps": 14,
+  "timeout_seconds": 600,
+  "seed": 0,
+  "arm": "H",
+  "repeat_index": 0,
+  "commit": "ddabdcc",
+  "date": "2026-08-29"
+ },
+ "verification": {
+  "command": "python3 -m pytest -q --no-header",
+  "exit_code": 1,
+  "tail": "y:6: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_split.py::test_parts_sum_to_total - AssertionError: (100, [...\n1 failed in 0.03s\n"
+ }
+}

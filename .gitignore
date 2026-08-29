@@ -10,3 +10,6 @@ __pycache__/
 
 # Scratch workspaces materialised per run. proofs/runs/ is evidence and stays.
 /workspaces/
+
+# run_benchmark.py (legacy Gemini variant) still uses this
+GEMINI_API_KEYS=key1,key2,key3

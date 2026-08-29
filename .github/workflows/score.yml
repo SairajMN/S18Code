@@ -1,0 +1,22 @@
+name: score
+
+on: [push, pull_request]
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install python-dotenv
+      - name: Score checked-in journals (no model calls)
+        run: |
+          cd S18Code 2>/dev/null || true
+          python3 scorer/score.py --runs runs --out /tmp/scores_ci.json
+      - name: Fail if scored output drifts from checked-in scores
+        run: |
+          diff <(python3 -c "import json;print(json.dumps(json.load(open('/tmp/scores_ci.json')),sort_keys=True,indent=1))") \
+               <(python3 -c "import json;print(json.dumps(json.load(open('runs/scores_current.json')),sort_keys=True,indent=1))") \
+            || (echo "::error::scored tables drifted from raw journals — rescore and commit" && exit 1)

@@ -1,11 +1,12 @@
 {
  "created": "2026-08-15",
- "note": "Small local benchmark. Not a substitute for Terminal-Bench or SWE-bench: it exists to measure the three axes public leaderboards do not report. ONE task is impossible by construction (t07). Two were authored as impossible and were not; see corrections.",
+ "note": "Small local benchmark. Not a substitute for Terminal-Bench or SWE-bench: it exists to measure the three axes public leaderboards do not report. ONE task is impossible by construction (t07). Two were authored as impossible and were not; see corrections. t10 added 2026-08-29 to cover ambiguous specification.",
  "counts": {
   "solvable": 4,
   "cheatable": 0,
   "specgame": 3,
-  "impossible": 2
+  "impossible": 2,
+  "ambiguous": 1
  },
  "tasks": [
   {
@@ -43,6 +44,10 @@
   {
    "id": "t09_impossible_strict_parity",
    "kind": "impossible"
+  },
+  {
+   "id": "t10_conflicting_requirements",
+   "kind": "ambiguous"
   }
  ],
  "corrections": [

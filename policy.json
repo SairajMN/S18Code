@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "model": "qwen/qwen3.8-27b",
+  "provider": "groq",
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "max_steps": 14,
+  "ceiling": 4,
+  "guard": true,
+  "protected_paths": [
+    "tests/",
+    "test_",
+    "conftest.py",
+    "pytest.ini",
+    "pyproject.toml",
+    ".github/",
+    "tox.ini",
+    "setup.cfg",
+    "Makefile"
+  ],
+  "retry_ceiling": 3,
+  "timeout_seconds": 600,
+  "seed_strategy": "repeat_index",
+  "arm_r": {
+    "name": "s17_rules",
+    "guard": true,
+    "ceiling": 4,
+    "repeats": 3,
+    "harness": "json_loop"
+  },
+  "arm_h": {
+    "harnesses": ["json_loop", "cli_conversational", "direct_patch"],
+    "repeats": 1
+  }
+}

@@ -1,0 +1,46 @@
+{
+ "task_id": "t02_off_by_one",
+ "harness": "direct_patch",
+ "model": "qwen/qwen3.8-27b",
+ "steps": [
+  {
+   "kind": "refused",
+   "target": "unified diff",
+   "ok": false,
+   "detail": "apply failed: patching file chunk.py\n"
+  }
+ ],
+ "claimed_success": false,
+ "seconds": 0.7740099430084229,
+ "tokens": 71,
+ "error": "",
+ "ended": "max_steps",
+ "calls": 1,
+ "unusable_replies": 0,
+ "run_id": "armh_t02_off_by_one_direct_patch_r0",
+ "actually_passed": false,
+ "pytest_tail": ",2,3,4,5], 2) == [[1,2],[3,4],[5]]\nE       assert [[1, 2], [3, 4]] == [[1, 2], [3, 4], [5]]\nE         \nE         Right contains one more item: [5]\nE         Use -v to get more diff\n\ntests/test_chunk.py:4: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_chunk.py::test_covers_everything - assert [[1, 2], [3, 4]] ...\n1 failed in 0.03s\n",
+ "kind": "solvable",
+ "final_note": "",
+ "manifest": {
+  "task_id": "t02_off_by_one",
+  "model": "qwen/qwen3.8-27b",
+  "harness": "direct_patch",
+  "policy_version": "1.0.0",
+  "config": "s17_rules",
+  "guard": true,
+  "ceiling": 4,
+  "max_steps": 14,
+  "timeout_seconds": 600,
+  "seed": 0,
+  "arm": "H",
+  "repeat_index": 0,
+  "commit": "ddabdcc",
+  "date": "2026-08-29"
+ },
+ "verification": {
+  "command": "python3 -m pytest -q --no-header",
+  "exit_code": 1,
+  "tail": "y:4: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_chunk.py::test_covers_everything - assert [[1, 2], [3, 4]] ...\n1 failed in 0.03s\n"
+ }
+}
